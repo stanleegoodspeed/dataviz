@@ -6,3 +6,8 @@ Notes
 Possible charts to use
 - scatterplot
 - unit chart
+
+
+TODO
+- how do I group different dots by color (e.g. all dots with Rate=1 should be red)
+- how do I add a transition?
