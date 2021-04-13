@@ -41,14 +41,4 @@ d3.csv("https://raw.githubusercontent.com/stanleegoodspeed/dataviz/main/data/dat
       .attr("r", 3.5)
       .style("fill", "#69b3a2");  
 
-  function updateChart(mRate) {
-    console.log(mRate);
-  }
-
-  // Listen to the slider?
-  d3.select("#mySlider").on("change", function(d){
-    selectedValue = this.value
-    updateChart(selectedValue)
-  })
-
 });
