@@ -1,24 +1,3 @@
-<!-- Code from d3-graph-gallery.com -->
-<!DOCTYPE html>
-<meta charset="utf-8">
-
-<!-- Load d3.js -->
-<script src="https://d3js.org/d3.v4.js"></script>
-
-<!-- Create a div where the graph will take place -->
-<div id="my_dataviz"></div>
-
-<!-- <button onclick="triggerTransitionDelay()">Trigger transition</button>
-
-<input type="range" name="mySlider" id=mySlider min="1" max="9" value="1" step="0.5"> -->
-
-
-<script>
-
-// var colors = d3.scale.linear()
-//     .domain([5, 20])
-//     .range(['#000000','#ffffff'])
-
 // set the dimensions and margins of the graph
 var margin = {top: 10, right: 30, bottom: 30, left: 60},
     width = 460 - margin.left - margin.right,
@@ -59,7 +38,7 @@ d3.csv("https://raw.githubusercontent.com/stanleegoodspeed/dataviz/main/data/dat
     .append("circle")
       .attr("cx", function (d) { return x(d.MinIncome); } )
       .attr("cy", function (d) { return y(d.NumHouseholds); } )
-      .attr("r", 1.5)
+      .attr("r", 3.5)
       .style("fill", "#69b3a2");  
 
   function updateChart(mRate) {
@@ -73,14 +52,3 @@ d3.csv("https://raw.githubusercontent.com/stanleegoodspeed/dataviz/main/data/dat
   })
 
 });
-
-function triggerTransitionDelay(){
-
-  svg.selectAll("dot")
-    .transition()
-    .duration(2000)
-    .attr("cy", 300)
-    .delay(function(i){return(i*10)})
-}
-
-</script>
