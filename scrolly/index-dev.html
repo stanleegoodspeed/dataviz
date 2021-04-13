@@ -13,17 +13,12 @@
 <body>
   <main>
 
-    <!-- Intro -->
-    <section id="intro">
-      <h1>This is the intro</h1>
-    </section>
-
     <!-- Scrolly -->
     <section id="scrolly">
       <figure>
-        <!-- <img src="img/first.svg" style="width:100%;" alt="test chart"> -->
-        <p>Chart</p>
-        <div id="my_dataviz"></div>
+        <div id="my_dataviz_0" class="dataviz"></div>
+        <div id="my_dataviz_1" class="dataviz"></div>
+        <div id="my_dataviz_2" class="dataviz"></div>
       </figure>
       <article>
         <div class="step" data-step="1">
@@ -46,15 +41,8 @@
         </div>
       </article>
     </section>
-
-    <!-- Outro -->
-    <section id="outro">
-      <h1>This is the outro</h1>
-    </section>
   </main>
 
-  <!-- <div class='debug'></div> -->
-  <!-- <script src="https://unpkg.com/d3@5.9.1/dist/d3.min.js"></script> -->
   <script src="https://d3js.org/d3.v4.js"></script>
   <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
   <script src="./js/stickyfill.min.js"></script>
@@ -67,6 +55,7 @@
     var figure = scrolly.select("figure");
     var article = scrolly.select("article");
     var step = article.selectAll(".step");
+    var dataViz = figure.selectAll(".dataviz");
 
     // initialize the scrollama
     var scroller = scrollama();
@@ -97,9 +86,12 @@
         return i === response.index;
       });
 
-      // update graphic based on step <img src="img/panda.jpg" style="width:100%;" alt="Panda">
-      figure.select("p").text('chart ' + response.index);
-      //figure.select("p").innerHTML('<img src="img/first.svg" style="width:100%;" alt="Panda">');
+      dataViz.classed("is-active", function (d, i) {
+        return i === response.index;
+      });
+
+      //var activeDataViz = figure.select(`#my_dataviz_${response.index}`);
+      //activeDataViz.classed("is-active",true);
     }
 
     function setupStickyfill() {
@@ -121,7 +113,7 @@
         .setup({
           step: "#scrolly article .step",
           offset: 0.33,
-          debug: true
+          debug: false
         })
         .onStepEnter(handleStepEnter);
 
