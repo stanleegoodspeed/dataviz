@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Builders Data Viz</title>
+  <meta name="description" content="Builders Data Viz" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://s3.amazonaws.com/colincole.me/dataviz/css/style.css" />
+</head>
+
+<body>
+  <main>
+
+    <!-- Intro 
+    <section id="intro">
+      <h1>This is the intro</h1>
+    </section>
+    -->
+
+    <!-- Scrolly -->
+    <section id="scrolly">
+      <figure>
+        <!-- <img src="img/first.svg" style="width:100%;" alt="test chart"> -->
+        <p>Chart</p>
+        <div id="my_dataviz"></div>
+      </figure>
+      <article>
+        <div class="step" data-step="1">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a aliquam purus. Mauris ut magna in libero
+            pulvinar efficitur nec vel mauris. Nullam facilisis sem non ante lacinia pellentesque. Aenean a nunc mattis,
+            auctor enim sit amet, ornare ipsum.</p>
+        </div>
+        <div class="step" data-step="2">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a aliquam purus.Nullam facilisis sem non
+            ante lacinia pellentesque. Aenean a nunc mattis, auctor enim sit amet, ornare ipsum.</p>
+        </div>
+        <div class="step" data-step="3">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a aliquam purus. Nullam facilisis sem non
+            ante lacinia pellentesque.</p>
+        </div>
+        <div class="step" data-step="4">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a aliquam purus. Mauris ut magna in libero
+            pulvinar efficitur nec vel mauris. Nullam facilisis sem non ante lacinia pellentesque. Aenean a nunc mattis,
+            auctor enim sit amet, ornare ipsum. Mauris ut magna in libero pulvinar efficitur nec vel mauris</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- Outro 
+    <section id="outro">
+      <h1>This is the outro</h1>
+    </section>
+    -->
+  </main>
+
+  <!-- <div class='debug'></div> -->
+  <!-- <script src="https://unpkg.com/d3@5.9.1/dist/d3.min.js"></script> -->
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+  <script src="https://s3.amazonaws.com/colincole.me/dataviz/js/stickyfill.min.js"></script>
+  <script src="https://s3.amazonaws.com/colincole.me/dataviz/js/scrollama.min.js"></script>
+  <script src="https://s3.amazonaws.com/colincole.me/dataviz/js/chart-builder.js"></script>
+  <script>
+    // using d3 for convenience
+    var main = d3.select("main");
+    var scrolly = main.select("#scrolly");
+    var figure = scrolly.select("figure");
+    var article = scrolly.select("article");
+    var step = article.selectAll(".step");
+
+    // initialize the scrollama
+    var scroller = scrollama();
+
+    // generic window resize listener event
+    function handleResize() {
+      // 1. update height of step elements
+      var stepH = Math.floor(window.innerHeight * 0.75);
+      step.style("height", stepH + "px");
+
+      var figureHeight = window.innerHeight / 2;
+      var figureMarginTop = (window.innerHeight - figureHeight) / 2;
+
+      figure
+        .style("height", figureHeight + "px")
+        .style("top", figureMarginTop + "px");
+
+      // 3. tell scrollama to update new element dimensions
+      scroller.resize();
+    }
+
+    // scrollama event handlers
+    function handleStepEnter(response) {
+      // response = { element, direction, index }
+
+      // add color to current step only
+      step.classed("is-active", function (d, i) {
+        return i === response.index;
+      });
+
+      // update graphic based on step <img src="img/panda.jpg" style="width:100%;" alt="Panda">
+      figure.select("p").text('chart ' + response.index);
+      //figure.select("p").innerHTML('<img src="img/first.svg" style="width:100%;" alt="Panda">');
+    }
+
+    function setupStickyfill() {
+      d3.selectAll(".sticky").each(function () {
+        Stickyfill.add(this);
+      });
+    }
+
+    function init() {
+      setupStickyfill();
+
+      // 1. force a resize on load to ensure proper dimensions are sent to scrollama
+      handleResize();
+
+      // 2. setup the scroller passing options
+      // 		this will also initialize trigger observations
+      // 3. bind scrollama event handlers (this can be chained like below)
+      scroller
+        .setup({
+          step: "#scrolly article .step",
+          offset: 0.33,
+          debug: true
+        })
+        .onStepEnter(handleStepEnter);
+
+      // setup resize event
+      window.addEventListener("resize", handleResize);
+    }
+
+    // kick things off
+    init();
+  </script>
+</body>
+
+</html>
