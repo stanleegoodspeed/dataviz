@@ -133,7 +133,7 @@ d3.csv("https://raw.githubusercontent.com/stanleegoodspeed/dataviz/main/data/dat
 /*** CHART 4 ***/
 
 // append the svg object to the body of the page
-var svg2 = d3.select("#my_dataviz_2")
+var svg3 = d3.select("#my_dataviz_3")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -148,7 +148,7 @@ d3.csv("https://raw.githubusercontent.com/stanleegoodspeed/dataviz/main/data/dat
   var x = d3.scaleLinear()
     .domain([60000, 75000])
     .range([ 0, width ]);
-  svg2.append("g")
+  svg3.append("g")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x));
 
@@ -156,11 +156,11 @@ d3.csv("https://raw.githubusercontent.com/stanleegoodspeed/dataviz/main/data/dat
   var y = d3.scaleLinear()
     .domain([50000000, 60000000])
     .range([ height, 0]);
-  svg2.append("g")
+  svg3.append("g")
     .call(d3.axisLeft(y));
 
   // Add dots
-  svg2.append('g')
+  svg3.append('g')
     .selectAll("dot")
     .data(data)
     .enter()
