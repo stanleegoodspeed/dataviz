@@ -15,11 +15,18 @@
 
     <!-- Scrolly -->
     <section id="scrolly">
-      <figure>
+      <figure style="z-index:99 !important;">
         <div id="my_dataviz_0" class="dataviz is-active"></div>
         <div id="my_dataviz_1" class="dataviz"></div>
         <div id="my_dataviz_2" class="dataviz"></div>
-        <div id="my_dataviz_3" class="dataviz"></div>
+        <div id="my_dataviz_3" class="dataviz">
+          <div>
+            <div id="my_dataviz_3_chart"></div>
+            <div style="display:flex;justify-content:center;">
+              <input type="range" name="mySlider" id=mySlider min="10" max="100" value="50">
+            </div>
+          </div>
+        </div>
       </figure>
       <article>
         <div class="step is-active" data-step="1">
