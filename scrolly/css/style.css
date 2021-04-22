@@ -17,7 +17,7 @@ body {
 
 #scrolly {
   position: relative;
-  background-color: #f3f3f3;
+  /* background-color: #f3f3f3; */
   padding: 1rem;
 }
 
@@ -54,9 +54,19 @@ figure {
   color: #fff;
 } */
 
+/* Mobile */
 figure div img {
-  max-width: 30%;
+  max-height: 70vh;
 }
+
+/* Tablet and up */
+/* @media screen and (min-width: 768px) {
+
+  figure div img {
+    max-height: 60vh;
+  }
+
+} */
 
 .step {
   visibility: hidden;
