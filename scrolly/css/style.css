@@ -40,7 +40,7 @@ figure {
   z-index: 0;
 }
 
-figure p {
+/* figure p {
   text-align: center;
   padding: 1rem;
   position: absolute;
@@ -52,6 +52,10 @@ figure p {
   font-size: 8rem;
   font-weight: 900;
   color: #fff;
+} */
+
+figure div img {
+  max-width: 30%;
 }
 
 .step {
@@ -63,8 +67,42 @@ figure p {
 .step-container {
   margin: 0 auto 2rem auto;
   color:black;
-  border-radius: 15px 15px 15px 15px;
+  /* border-radius: 15px 15px 15px 15px; */
+  border: 3px solid #d3d0d0;
   background-color: rgb(255, 255, 255);
+  padding:10px;
+}
+
+.step-container .title {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.step-container .bio {
+  font-size: 14px;
+}
+
+.step-container blockquote {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  font-style: italic;
+  /* width: 500px; */
+  margin: 0.25em 0;
+  padding: 0.35em 40px;
+  line-height: 1.45;
+  position: relative;
+  color: red;
+}
+  
+.step-container blockquote:before {
+  display: block;
+  padding-left: 10px;
+  content: "\201C";
+  font-size: 80px;
+  position: absolute;
+  left: -12px;
+  top: -16px;
+  color: red;
 }
 
 .step p {
@@ -76,7 +114,7 @@ figure p {
 
 .step.is-active {
   visibility: visible;
-  opacity: 0.7;
+  opacity: 0.9;
   transition: visibility 0s linear 0s, opacity 300ms;
 }
 

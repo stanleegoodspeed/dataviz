@@ -15,44 +15,43 @@
 
     <!-- Scrolly -->
     <section id="scrolly">
-      <figure style="z-index:99 !important;">
-        <div id="my_dataviz_0" class="dataviz is-active"></div>
-        <div id="my_dataviz_1" class="dataviz"></div>
-        <div id="my_dataviz_2" class="dataviz"></div>
-        <div id="my_dataviz_3" class="dataviz">
-          <div>
-            <div id="my_dataviz_3_chart"></div>
-            <div style="display:flex;justify-content:center;">
-              <input type="range" name="mySlider" id=mySlider min="10" max="100" value="50">
-            </div>
-          </div>
+      <figure>
+        <div id="my_dataviz_0" class="dataviz is-active">
+          <img src="../img/frank.png" alt="frank">
+        </div>
+        <div id="my_dataviz_1" class="dataviz">
+          <img src="../img/james.png" alt="james">
+        </div>
+        <div id="my_dataviz_2" class="dataviz">
+          <img src="../img/marianne.png" alt="marianne">
         </div>
       </figure>
       <article>
         <div class="step is-active" data-step="1">
           <div class="step-container">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a aliquam purus. Mauris ut magna in libero
-              pulvinar efficitur nec vel mauris. Nullam facilisis sem non ante lacinia pellentesque. Aenean a nunc mattis,
-              auctor enim sit amet, ornare ipsum.</p>
+            <p class="title">Competitiveness</p>
+            <p class="bio">Frank Anton, housing advisor and former iconic editor and steward of Hanley Wood, notes the inherent factors that keep residential construction uncompetitive in attracting skilled talent.</p>
+            <blockquote>
+              Most housing activity occurs in big, vibrant metro markets, and such markets offer up lots of better paying, safer and, frankly, easier jobs than are available in construction.  That makes it hard for builders to attract a highly skilled and highly motivated workforce.
+            </blockquote>
           </div>
         </div>
         <div class="step" data-step="2">
           <div class="step-container">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a aliquam purus.Nullam facilisis sem non
-            ante lacinia pellentesque. Aenean a nunc mattis, auctor enim sit amet, ornare ipsum.</p>
+            <p class="title">The Future Is Now</p>
+            <p class="bio">James Chung, Principal of Reach Advisors, sees the advent of the algorithmic era and machine learning changing the game completely and rewriting what a labor problem is.</p>
+            <blockquote>
+              We’ve now entered the algorithmic decade. Machines are increasingly creating, dissecting and improving algorithms to drive more efficient outcomes. The homebuilding industry is not immune. Almost every important judgment call in the industry is driven by accumulated experience, instinct and heuristics that feed human-generated algorithms. But we’ve now entered a time when machines are making those algorithms better and more efficient.
+            </blockquote>
           </div>
         </div>
         <div class="step" data-step="3">
           <div class="step-container">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a aliquam purus. Nullam facilisis sem non
-            ante lacinia pellentesque.</p>
-          </div>
-        </div>
-        <div class="step" data-step="4">
-          <div class="step-container">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a aliquam purus. Mauris ut magna in libero
-            pulvinar efficitur nec vel mauris. Nullam facilisis sem non ante lacinia pellentesque. Aenean a nunc mattis,
-            auctor enim sit amet, ornare ipsum. Mauris ut magna in libero pulvinar efficitur nec vel mauris</p>
+            <p class="title">The Hurdle</p>
+            <p class="bio">Marianne Capsuto, architecture & planning consultant, expert in disaster relief and the creator of the Katrina Houses, nails the cultural hurdle we must traverse.</p>
+            <blockquote>
+              We cannot truly address the building industry’s human capacity challenge until mothers across the country brag at wine night that her son, or daughter, has taken a job in construction.
+            </blockquote>
           </div>
         </div>
       </article>
@@ -63,7 +62,7 @@
   <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
   <script src="../js/stickyfill.min.js"></script>
   <script src="../js/scrollama.min.js"></script>
-  <script src="../js/chart-builder.js"></script>
+  
   <script>
     // using d3 for convenience
     var main = d3.select("main");
